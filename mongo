@@ -1,0 +1,64 @@
+> use tablee
+switched to db tablee
+> db.createCollection("customer")
+{ "ok" : 1 }
+> show collections
+customer
+
+> db.customer.insert({"name":"arrn"})
+WriteResult({ "nInserted" : 1 })
+> show collections
+customer
+> db.employee.insert({"name":"arrn"})
+WriteResult({ "nInserted" : 1 })
+> show collections
+customer
+employee
+> 
+
+
+
+
+
+
+
+
+
+
+> db.employee.drop()
+true
+> show collections
+customer
+
+> db.customer.insert({"id:1","name":"arrn","address":"kattangal","college":"kmct"})
+WriteResult({ "nInserted" : 1 })
+
+> db.customer.find()
+{ "_id" : ObjectId("62a2e34bf4ff38eb3da29c98"), "name" : "arrn" }
+{ "_id" : ObjectId("62a2e45ef4ff38eb3da29c9a"), "name" : "arrn", "address" : "kattangal", "college" : "kmct" }
+
+> db.customer.insert({"name":"nasera","address":"kattangal","college":"kmct"})
+WriteResult({ "nInserted" : 1 })
+
+> db.customer.find()
+{ "_id" : ObjectId("62a2e34bf4ff38eb3da29c98"), "name" : "arrn" }
+{ "_id" : ObjectId("62a2e45ef4ff38eb3da29c9a"), "name" : "arrn", "address" : "kattangal", "college" : "kmct" }
+{ "_id" : ObjectId("62a2e63ef4ff38eb3da29c9b"), "name" : "nasera", "address" : "kattangal", "college" : "kmct" }
+
+
+> db.customer.find().pretty();
+{ "_id" : ObjectId("62a2e34bf4ff38eb3da29c98"), "name" : "arrn" }
+{
+	"_id" : ObjectId("62a2e45ef4ff38eb3da29c9a"),
+	"name" : "arrn",
+	"address" : "kattangal",
+	"college" : "kmct"
+}
+{
+	"_id" : ObjectId("62a2e63ef4ff38eb3da29c9b"),
+	"name" : "nasera",
+	"address" : "kattangal",
+	"college" : "kmct"
+}
+> 
+
